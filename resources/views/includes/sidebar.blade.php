@@ -34,7 +34,7 @@
           <a href="{{ route('paket.index') }}" class="nav-link">
             <i class="nav-icon fas fa-tasks"></i>
             <p>
-              Paket Soal              
+              Paket Soal
             </p>
           </a>
         </li>
@@ -47,7 +47,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="pages/sdm/jadwal-ujian.html" class="nav-link">
+          <a href="#" class="nav-link">
             <i class="nav-icon fas fa-clock"></i>
             <p>
               Jadwal Ujian              
@@ -55,7 +55,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="pages/sdm/hasil-ujian.html" class="nav-link">
+          <a href="#" class="nav-link">
             <i class="nav-icon fas fa-table"></i>
             <p>
               Hasil Ujian              

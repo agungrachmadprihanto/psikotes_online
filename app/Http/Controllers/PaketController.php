@@ -10,7 +10,9 @@ class PaketController extends Controller
 {
     public function index()
     {
-        return view('admin.pages.paket.index');
+        $paket = Paket::all();
+
+        return view('admin.pages.paket.index', ['paket' => $paket]);
     }
 
     public function post(PaketRequest $request)
@@ -19,6 +21,14 @@ class PaketController extends Controller
         $data['deskripsi'] = $request->summernote;
 
         Paket::create($data);
+
+        return redirect()->route('paket.index');
+    }
+
+    public function delete($id)
+    {
+        $data = Paket::findOrFail($id);
+        $data->delete();
 
         return redirect()->route('paket.index');
     }

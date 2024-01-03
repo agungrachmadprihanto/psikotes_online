@@ -68,19 +68,28 @@
                     <th scope="col">Action</th>                   
                   </tr>
                 </thead>
+                @forelse ($paket as $data)
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>DISC</td>
-                    <td>80 Menit</td>                  
-                    <td>
-                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit">
-                        Edit/Views
-                      </button>
-                      <a href="" class="btn btn-danger">Delete</a>
-                    </td>                  
-                  </tr>
-                </tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>{{ $data->name }}</td>
+                      <td>{{ $data->menit }} Menit</td>                  
+                      <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit">
+                          Edit
+                        </button>
+                        <a href="{{ route('paket.delete', ['id' => $data->id]) }}" class="btn btn-danger">Delete</a>
+                      </td>                  
+                    </tr>
+                  </tbody>
+                @empty
+                <tbody>
+                    <tr>
+                      <th scope="row"></th>
+                      <td colspan="3">Data tidak ada</td>                 
+                    </tr>
+                  </tbody>
+                @endforelse
               </table>             
             </div>
             <!-- /.card-body -->

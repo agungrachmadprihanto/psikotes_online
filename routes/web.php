@@ -40,6 +40,7 @@ Route::prefix('paket')->group(function()
 {
     Route::get('/', [PaketController::class, 'index'])->name('paket.index');
     Route::post('/add', [PaketController::class, 'post'])->name('paket.post');
+    Route::get('/{id}', [PaketController::class, 'delete'])->name('paket.delete');
 });
 
 
