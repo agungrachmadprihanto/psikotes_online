@@ -31,7 +31,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="pages/sdm/paket-soal.html" class="nav-link">
+          <a href="{{ route('paket.index') }}" class="nav-link">
             <i class="nav-icon fas fa-tasks"></i>
             <p>
               Paket Soal              
