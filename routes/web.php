@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CalonController;
+use App\Http\Controllers\PaketController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -33,6 +34,12 @@ Route::prefix('calonkaryawan')
     Route::get('/', [CalonController::class,'index'])->name('calon.index');
     Route::any('/generate-password', [CalonController::class, 'generate'])->name('generate.pass');
     Route::post('/post', [CalonController::class, 'post'])->name('calon.post');
+});
+
+Route::prefix('paket')->group(function()
+{
+    Route::get('/', [PaketController::class, 'index'])->name('paket.index');
+    Route::post('/add', [PaketController::class, 'post'])->name('paket.post');
 });
 
 

@@ -17,7 +17,9 @@ class CalonController extends Controller
         $generate = Str::random(4);
         $enkrip = Hash::make($generate);
 
-        return view('admin.pages.calon.index',['generate' => $generate, 'enkrip' => $enkrip]);
+        $data = Calon::all();
+
+        return view('admin.pages.calon.index',['generate' => $generate, 'enkrip' => $enkrip,'data' => $data]);
     }
 
     public function generate()
@@ -37,7 +39,7 @@ class CalonController extends Controller
         // dd($data);
 
         Calon::create($data);
-        
+
        $calon = User::create([
             'name' => $request->name,
             'email' => $request->email,

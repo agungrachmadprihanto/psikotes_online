@@ -71,20 +71,32 @@
                     <th scope="col">Action</th>                   
                   </tr>
                 </thead>
+                @php
+                  $no = 1;
+                @endphp
+              @forelse ($data as $item)            
                 <tbody>
                   <tr>
-                    <th scope="row">1</th>
-                    <td>udin sedunia</td>
-                    <td>udinseduni@gmail.com</td>                  
-                    <td>123456789123456</td>                  
-                    <td>Marketing</td>
+                    <th scope="row">{{ $no++ }}</th>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->email }}</td>                  
+                    <td>{{ $item->nik }}</td>                  
+                    <td>{{ $item->showpass }}</td>
                     <td>
                       <a href="" class="btn btn-primary">Edit</a>
                       <a href="" class="btn btn-danger">Delete</a>
                     </td>                  
                   </tr>
                 </tbody>
-              </table>             
+                @empty
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td colspan="4">Data tidak ada</td>                 
+                  </tr>
+                </tbody>
+                @endforelse           
+              </table>  
             </div>
             <!-- /.card-body -->
           </div>

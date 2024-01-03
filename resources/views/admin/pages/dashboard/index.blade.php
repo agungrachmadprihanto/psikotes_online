@@ -16,7 +16,13 @@
                 </div>
                   <div class="card-body">
                   <!-- <h6 class="card-title">Special title treatment</h6> -->
-                      <p class="card-text" style="font-size: 20px;">Lakukan pengisian data diri sebelum memulai Tes bisa klik tombol di bawah ataupun bisa klik menu biodata</p>
+                      <p class="card-text" style="font-size: 20px; text-align:center">Lakukan pengisian data diri sebelum memulai Tes bisa klik tombol di bawah ataupun bisa klik menu biodata</p>
+                                                   
+                        @if (auth()->user()->hasRole('user'))
+                          <p class="card-text" style="font-size: 26px; text-align:center">
+                           Hello, {{ auth()->user()->name }}
+                          </p>
+                        @endif                      
                       <div class="row">
                           <div class="col text-center">
                             <button class="btn btn-danger">Isi data diri</button>
