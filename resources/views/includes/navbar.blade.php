@@ -11,7 +11,10 @@
     <ul class="navbar-nav ml-auto">
         <!-- Notifications Dropdown Menu -->   
       <li class="nav-item">
-        <button class="btn btn-danger">Logout</button>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+          @csrf
+          <button class="btn btn-danger" type="submit">Logout</button>
+      </form>
       </li>
     </ul>
   </nav>

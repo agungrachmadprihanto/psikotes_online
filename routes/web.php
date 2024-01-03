@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\CalonController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,11 +23,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::any('/generate-password', function () {
+    return (Str::random(4)); 
+});
 
 Route::prefix('calonkaryawan')
 ->group(function ()
 {
-    Route::get('/', [CalonController::class,'index'])->name('index');
+    Route::get('/', [CalonController::class,'index'])->name('calon.index');
+    Route::any('/generate-password', [CalonController::class, 'generate'])->name('generate.pass');
+    Route::post('/post', [CalonController::class, 'post'])->name('calon.post');
 });
 
 

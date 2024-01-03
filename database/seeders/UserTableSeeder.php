@@ -18,6 +18,7 @@ class UserTableSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => bcrypt('password'),
         ]);
+        
         $admin->assignRole('admin');
     }
 }

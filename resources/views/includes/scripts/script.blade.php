@@ -20,3 +20,5 @@
 <script src="{{ url('frontend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ url('frontend/dist/js/adminlte.js') }}"></script>
+
+@stack('script')
