@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CalonController;
+use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\SoalController;
 use Illuminate\Support\Facades\Route;
@@ -36,7 +37,7 @@ Route::group(['middleware' => ['role:admin']], function () {
         Route::post('/post', [CalonController::class, 'post'])->name('calon.post');
     });
 
-    Route::prefix('paket')->group(function()
+    Route::prefix('paket')->group(function ()
     {
         Route::get('/', [PaketController::class, 'index'])->name('paket.index');
         Route::post('/add', [PaketController::class, 'post'])->name('paket.post');
@@ -48,6 +49,12 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::prefix('soal')->group(function ()
     {
         Route::get('/', [SoalController::class, 'index'])->name('soal.index');
+    });
+
+    Route::prefix('jadwal')->group(function ()
+    {
+        Route::get('/',[JadwalController::class, 'index'])->name('jadwal.index');
+        Route::post('/add',[JadwalController::class, 'create'])->name('jadwal.post');
     });
 });
 
