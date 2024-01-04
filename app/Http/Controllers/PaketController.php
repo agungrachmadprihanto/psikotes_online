@@ -25,6 +25,23 @@ class PaketController extends Controller
         return redirect()->route('paket.index');
     }
 
+    public function edit($id)
+    {
+        $data = Paket::findOrFail($id);
+
+        return view('admin.pages.paket.edit', ['data' => $data]);
+    }
+
+    public function update(Request $request, $id)
+    {
+       $data = $request->all();
+       $data['deskripsi'] = $request->summernote;
+
+       Paket::findOrFail($id)->update($data);
+
+        return redirect()->route('paket.index');
+    }
+
     public function delete($id)
     {
         $data = Paket::findOrFail($id);

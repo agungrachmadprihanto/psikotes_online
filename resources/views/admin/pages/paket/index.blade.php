@@ -75,9 +75,7 @@
                       <td>{{ $data->name }}</td>
                       <td>{{ $data->menit }} Menit</td>                  
                       <td>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit">
-                          Edit
-                        </button>
+                        <a href="{{ route('paket.edit', ['id' => $data->id]) }}" class="btn btn-danger">Edit</a>
                         <a href="{{ route('paket.delete', ['id' => $data->id]) }}" class="btn btn-danger">Delete</a>
                       </td>                  
                     </tr>
